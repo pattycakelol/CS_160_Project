@@ -46,7 +46,7 @@ with open(file_dir + output_file_name, 'w') as output_file:
 </div>
 
 <div class="list">
-    <h2> Analysis of: """ + file_name + """</h2>""")
+    <h2> Analysis of """ + file_name + """:</h2>""")
     output_file.flush()
     subprocess.call(['python', 'log_processingv3.py', log_file], stdout=output_file)
     output_file.write("""
