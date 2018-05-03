@@ -7,6 +7,8 @@ file_dir = sys.argv[1] + "/results/"
 if not os.path.exists(file_dir):
     os.makedirs(file_dir)
 log_file = sys.argv[2]
+temp,temp2,file_name = sys.argv[2].split("/")
+
 output_file_name = sys.argv[3] + '.html'
 
 with open(file_dir + output_file_name, 'w') as output_file:
@@ -38,13 +40,13 @@ with open(file_dir + output_file_name, 'w') as output_file:
         </div>
     </div>
 <div class="header">
-    <div class="image"><img src="header.jpg"/></div>
+    <div class="image"><img src="../../../header.jpg"/></div>
     <h2 class="txt1">THIS IS <span class="txt2">EGGPLANT</span></h2>
     <p class="txt3">A FREE LOG PROCESSING TOOL</p>
 </div>
 
 <div class="list">
-    <h2>""" + log_file + """</h2>""")
+    <h2> Analysis of: """ + file_name + """</h2>""")
     output_file.flush()
     subprocess.call(['python', 'log_processingv3.py', log_file], stdout=output_file)
     output_file.write("""
