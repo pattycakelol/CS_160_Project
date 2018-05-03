@@ -50,6 +50,7 @@ with open(file_dir + output_file_name, 'w') as output_file:
     output_file.flush()
     subprocess.call(['python', 'log_processingv3.py', log_file], stdout=output_file)
     output_file.write("""
+    <p><a href="../../../files.php">Return to your uploads</a></p>
     <p><a href="../../../index.html">Return to main menu</a></p>
 </div>
 
