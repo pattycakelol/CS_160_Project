@@ -62,7 +62,7 @@ with open(file_dir + output_file_name, 'w') as output_file:
   <h2>A TOOL CREATED BY </h2>
   <h4>Team Eggplant</h4>
   <p>(Gabriella Qiu, Patrick Leung, Henry Ngo, Blanchy Polancos)</p>
-  <h4><a href="https://github.com/liamsjsu/CS_160_Project/">Explore on Github</a></h4>
+  <h4><a href="https://github.com/pattycakelol/CS_160_Project/">Explore on Github</a></h4>
 </section>
 
 <!-- Copyrights Section -->

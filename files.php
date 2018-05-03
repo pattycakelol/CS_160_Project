@@ -86,7 +86,7 @@ echo
 <section class="footer_banner">
 <h4>Team Eggplant</h4>
 <p>(Blanchy Polancos, Gabriella Qiu, Henry Ngo, Patrick Leung)</p>
-<h4><a href="https://github.com/liamsjsu/CS_160_Project/">Explore on Github</a></h4>
+<h4><a href="https://github.com/pattycakelol/CS_160_Project/">Explore on Github</a></h4>
 </section>
 
 <!-- Copyrights Section -->
