@@ -39,14 +39,13 @@ if (isset($_COOKIE["id_number"])){
     $owner = $_COOKIE["id_number"];
 }
 else{
-    echo "Sorry, an error has occured.";
+    echo "Please sign in to view logs.";
     die();
 }
 
 echo "<a href='upload.html'>Go to Upload</a><br><br>";
 echo "Logs belonging to " . $_COOKIE["user_name"] . ":<br>";
 echo "<form action='delete.php' method='post'>";
-echo "<table border='1'>";
 $host = 'localhost';
 $user = 'root';
 $pass = 'root';
@@ -62,6 +61,7 @@ $result = $conn->query($statement);
 
 // Delete button has not been tested yet, view analysis button needs to be redone later
 if ($result->num_rows > 0) { // data found (at least 1 row)
+  echo "<table border='1'>"; 
   while ($row = $result->fetch_assoc()) {
       echo "<tr>";
       echo "<td>".$row["file_name"]."</td>";
@@ -70,12 +70,12 @@ if ($result->num_rows > 0) { // data found (at least 1 row)
       echo "</tr>";
       // echo $row['file_path']."<br>".$row['file_name']."<br><br>";
   }
+  echo "</table>";
 } else {
   echo "No log files uploaded yet.<br>";
 }
 
 $conn->close();
-echo "</table>";
 echo "</form>";
 
 echo
