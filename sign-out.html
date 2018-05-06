@@ -3,15 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>Sign In</title>
+<title>Sign Out</title>
 <link href="eggplant.css" rel="stylesheet" type="text/css">
 <script src="eggplant.js"></script>
+<script>        
+  function onLoad() {
+    gapi.load('auth2', function() {
+      gapi.auth2.init();
+        });
+    }
+</script>
 <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="773730468254-82509noo29h6q37nbepago8ksko4a2as.apps.googleusercontent.com">
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 </head>
 
-<body>
+<!-- Sign out of google on page load-->
+<body onload="signOut()">
 <div class="container">
     <div class="nav">
         <a href="index.html">HOME</a>
@@ -30,9 +39,8 @@
         <p class="txt3">A FREE LOG PROCESSING TOOL</p>
     </div>
   <div class="list">
-      <h4>Sign In with Us</h4>
-      <center><div class="g-signin2" data-onsuccess="onSignIn" -theme="light" data-width="240" data-height="50"
-      data-longtitle="true"></div></center>
+      <h3>Thank you for using Eggplant</h3>
+      <p><a href="index.html">Return to Home</a></p>
   </div>
   <section class="about" id="about">
       <h2 class="parallax">ABOUT EGGPLANT</h2>

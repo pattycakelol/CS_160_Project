@@ -2,7 +2,7 @@ function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";Path=/";
 }
 
 // This sign-in funciont and the code are provided by Google
@@ -75,13 +75,12 @@ window.onclick = function(e) {
 }
 
 function signOut() {
+    //Delete the cookie
+    document.cookie = "id_number=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/;";
+    document.cookie = "user_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/;";
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-        //Delete the cookie
-        document.cookie = "id_number=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/;";
-        document.cookie = "user_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/;";
         console.log('User signed out.');
-        location.reload();
     });
 }
 

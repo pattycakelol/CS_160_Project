@@ -17,7 +17,7 @@ with open(file_dir + output_file_name, 'w') as output_file:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>Upload</title>
+<title>Results</title>
 <link href="../../../eggplant.css" rel="stylesheet" type="text/css">
 <script src="../../../eggplant.js"></script>
 <meta name="google-signin-scope" content="profile email">
@@ -34,8 +34,8 @@ with open(file_dir + output_file_name, 'w') as output_file:
         <div class = "drop">
             <a onclick="drop()">ACCOUNT</a>
             <div id="dropdown" class="drop-menu">
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                <a href="" onclick="signOut();">Sign Out</a>
+                <a href="../../../sign-in.html">Sign In</a>
+                <a href="../../../sign-out.html">Sign Out</a>
             </div>
         </div>
     </div>

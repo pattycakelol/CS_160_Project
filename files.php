@@ -21,8 +21,8 @@ echo
         <div class = "drop">
             <a onclick="drop()">ACCOUNT</a>
             <div id="dropdown" class="drop-menu">
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                <a href="" onclick="signOut();">Sign Out</a>
+              <a href="sign-in.html">Sign In</a>
+              <a href="sign-out.html">Sign Out</a>
             </div>
         </div>
     </div>
@@ -39,11 +39,27 @@ if (isset($_COOKIE["id_number"])){
     $owner = $_COOKIE["id_number"];
 }
 else{
-    echo "Please sign in to view logs.";
+    // User not logged in. Display error text and complete the rest of the page early.
+    echo 'Please sign in to view your log files.
+    </div>
+    <section class="about" id="about">
+    <h2 class="parallax">ABOUT EGGPLANT</h2>
+    <p class="parallax_description">Eggplant is a free tool written in Python 3.0 for analyzing log files. It is a web-based tool, so the frontend is developed with html. It is only for educational use.</p>
+    </section>
+    <section class="footer_banner">
+    <h4>Team Eggplant</h4>
+    <p>(Blanchy Polancos, Gabriella Qiu, Henry Ngo, Patrick Leung)</p>
+    <h4><a href="https://github.com/pattycakelol/CS_160_Project/">Explore on Github</a></h4>
+    </section>
+
+    <!-- Copyrights Section -->
+    <div class="copyright">&copy;2018 - Team eggplant<strong></strong></div>
+    </div>
+    </body>
+    </html>';
     die();
 }
 
-echo "<a href='upload.html'>Go to Upload</a><br><br>";
 echo "Logs belonging to " . $_COOKIE["user_name"] . ":<br>";
 echo "<form action='delete.php' method='post'>";
 $host = 'localhost';
@@ -61,11 +77,11 @@ $result = $conn->query($statement);
 
 // Delete button has not been tested yet, view analysis button needs to be redone later
 if ($result->num_rows > 0) { // data found (at least 1 row)
-  echo "<table border='1'>"; 
+  echo "<table border='1' align='center'>"; 
   while ($row = $result->fetch_assoc()) {
       echo "<tr>";
       echo "<td>".$row["file_name"]."</td>";
-      echo "<td><a href='".dirname(substr($row['file_path'], 0, -3)).'/results/'.$row['file_name'].'.html'."'>View Analysis</a></td>";
+      echo "<td><a href='".dirname($row['file_path']).'/results/'.$row['file_name'].'.html'."'>View Analysis</a></td>";
       echo "<td><button type='submit' value='".$row["file_path"]."' name='data[".$row["file_name"]."]'>Delete File</button></td>";
       echo "</tr>";
       // echo $row['file_path']."<br>".$row['file_name']."<br><br>";
@@ -74,6 +90,8 @@ if ($result->num_rows > 0) { // data found (at least 1 row)
 } else {
   echo "No log files uploaded yet.<br>";
 }
+
+echo "<p><a href='upload.html'>Upload New Log Files</a><p><br><br>";
 
 $conn->close();
 echo "</form>";
