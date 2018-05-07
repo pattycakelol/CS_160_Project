@@ -29,7 +29,8 @@ if ($result->num_rows > 0) {
         // the issue was that PHP converts the name field's special characters (such as periods and spaces) to underscores
         // the work-around used was turning the name into an array so that the periods and spaces in file name in $_POST are left untouched
         // and can be used in sql statements without further string parsing
-        $statement = "delete from logfiles where file_path = '".$_POST['data'][$row['file_name']]."'";
+        $statement = "delete from logfiles where file_path = '".$_POST['savemefromthishell']."'";
+        echo "Row: ".$_POST['savemefromthishell']."<br>";
         echo "statement: ".$statement."<br>";
         if ($conn->query($statement) === TRUE) {
             echo "File deleted from database successfully<br>";
@@ -43,8 +44,8 @@ if ($result->num_rows > 0) {
             // unlink($row['file_path']);
             // unlink(dirname($row['file_path'])."/results/".basename($row['file_path']).".html");
             // echo $row['file_path']."<br>".dirname($row['file_path'])."/results/".basename($row['file_path']).".html<br>";
-            unlink($_POST['data'][$row['file_name']]);
-            unlink(dirname($_POST['data'][$row['file_name']])."/results/".basename($_POST['data'][$row['file_name']]).".html");
+            unlink($_POST['savemefromthishell']);
+            unlink(dirname($_POST['savemefromthishell'])."/results/".basename($_POST['data'][$row['file_name']]).".html");
 
             // with uniqueid's for files gone, we dont need below code, but it's nice to have t show progress
 
@@ -68,4 +69,15 @@ echo "<a href='files.php'>Back to Files</a>";
 // Once file is deleted, go back to file manager
 header("Location: files.php");
 die();
+
+
+
+
+function console( $data ) {
+    $output = $data;
+    if ( is_array( $output ) )
+        $output = implode( ',', $output);
+
+    echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
+}
 ?>

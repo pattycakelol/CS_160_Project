@@ -75,14 +75,13 @@ if ($conn->connect_error) {
 $statement = "select * from logfiles where owner = '" . $owner . "'";
 $result = $conn->query($statement);
 
-// Delete button has not been tested yet, view analysis button needs to be redone later
 if ($result->num_rows > 0) { // data found (at least 1 row)
   echo "<table border='1' align='center'>"; 
   while ($row = $result->fetch_assoc()) {
       echo "<tr>";
       echo "<td>".$row["file_name"]."</td>";
       echo "<td><a href='".dirname($row['file_path']).'/results/'.$row['file_name'].'.html'."'>View Analysis</a></td>";
-      echo "<td><button type='submit' value='".$row["file_path"]."' name='data[".$row["file_name"]."]'>Delete File</button></td>";
+      echo "<td><button type='submit' value='".$row['file_path']."' name='savemefromthishell'>Delete File</button></td>";
       echo "</tr>";
       // echo $row['file_path']."<br>".$row['file_name']."<br><br>";
   }
@@ -112,4 +111,5 @@ echo
 </div>
 </body>
 </html>';
+
 ?>
