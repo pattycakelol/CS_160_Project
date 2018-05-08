@@ -28,7 +28,7 @@ if ($_FILES["logFile"]["size"] > 500000) {
 // change to switch statement for easy reading
 // Allow certain file formats
 if(!is_numeric($fileExtension)) { // because we're only given .1, .2, .3, .4, and .5 file extensions...
-    echo "Uploaded log file must have the correct file extension<br>";
+    displayError("Uploaded log file must have the correct file extension.");
     $uploadOk = 0;
 }
 
@@ -78,17 +78,18 @@ if ($uploadOk == 0) {
             // moved inside database stuff so nothing has to be processed if an error exists
             // Process the file after uploading it
             $output = shell_exec('python format.py ' . escapeshellarg($file_dir) . " " . escapeshellarg($file_path) . " " . escapeshellarg($file_name));
+            unlink($file_path);
 
             // file successfully uploaded, redirect to files
             header("Location: files.php");
             die();
 
         } else {
-            displayError("You have already uploaded a file of the name: '$file_name'");
+            displayError("You have already uploaded a file of the name: '$file_name'.");
             die();
         }
     } else {
-        displayError("There was a system error when uploading your file");
+        displayError("There was a system error when uploading your file.");
         die();
     }
 

@@ -44,7 +44,7 @@ if ($result->num_rows > 0) {
             // unlink($row['file_path']);
             // unlink(dirname($row['file_path'])."/results/".basename($row['file_path']).".html");
             // echo $row['file_path']."<br>".dirname($row['file_path'])."/results/".basename($row['file_path']).".html<br>";
-            unlink($_POST['savemefromthishell']);
+            // unlink($_POST['savemefromthishell']);
             unlink(dirname($_POST['savemefromthishell'])."/results/".basename($_POST['data'][$row['file_name']]).".html");
 
             // with uniqueid's for files gone, we dont need below code, but it's nice to have t show progress
