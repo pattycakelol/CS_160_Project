@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
         echo "Row: ".$_POST['savemefromthishell']."<br>";
         echo "statement: ".$statement."<br>";
         if ($conn->query($statement) === TRUE) {
-            echo "File deleted from database successfully<br>";
+            echo "<p>File deleted from database successfully</p><br>";
 
             // misspelled a directory and almost deleted everything in my computer... thank god for permissions.
             echo "Deleting file from server:...<br>";
@@ -59,13 +59,13 @@ if ($result->num_rows > 0) {
             // }
 
         } else {
-            echo "Error deleting file from database: " . $conn->error . "<br>";
+            echo "<p>Error deleting file from database: " . $conn->error . "</p><br>";
         }
     }
 } else { // no data found to delete
-  echo "Nothing to delete.<br>";
+  echo "<p>Nothing to delete.</p><br>";
 }
-echo "<a href='files.php'>Back to Files</a>";
+echo "<p><a href='files.php'>Back to Files</a></p>";
 // Once file is deleted, go back to file manager
 header("Location: files.php");
 die();

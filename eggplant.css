@@ -19,7 +19,7 @@ body {
 /*colum view*/
 .row {
 	width: 100%;
-	margin-top: 0px;
+	margin-top: 10px;
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 0px;
@@ -184,10 +184,9 @@ body {
 	width: 960px;
 	height: 400px;
 	background-color: #FFFFFF;
-	box-shadow: 2px -30px #f2f2f2 inset, -2px 0px #f2f2f2 inset;
+	box-shadow: 2px -23px #f2f2f2 inset, -2px 0px #f2f2f2 inset;
 	display: inline-block;
-	margin-top: 15px;
-    padding-top: 30px;
+	margin-top: 28px;
     text-align: center;
 }
 .list h2 {

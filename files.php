@@ -60,7 +60,7 @@ else{
     die();
 }
 
-echo "Logs belonging to " . $_COOKIE["user_name"] . ":<br>";
+echo "<p>Logs belonging to " . $_COOKIE["user_name"] . ":</p><br>";
 echo "<form action='delete.php' method='post'>";
 $host = 'localhost';
 $user = 'root';
@@ -87,7 +87,7 @@ if ($result->num_rows > 0) { // data found (at least 1 row)
   }
   echo "</table>";
 } else {
-  echo "No log files uploaded yet.<br>";
+  echo "<p>No log files uploaded yet.</p><br>";
 }
 
 echo "<p><a href='upload.html'>Upload New Log Files</a><p><br><br>";

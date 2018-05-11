@@ -6,7 +6,7 @@ if (isset($_COOKIE["id_number"])){
     $unique_id = $_COOKIE["id_number"];
 }
 else{
-    displayError("Please log in to upload files.");
+    displayError("<p>Please log in to upload files.</p>");
     $uploadOk = 0;
     die();
 }
@@ -28,13 +28,13 @@ if ($_FILES["logFile"]["size"] > 500000) {
 // change to switch statement for easy reading
 // Allow certain file formats
 if(!is_numeric($fileExtension)) { // because we're only given .1, .2, .3, .4, and .5 file extensions...
-    displayError("Uploaded log file must have the correct file extension.");
+    displayError("<p>Uploaded log file must have the correct file extension.</p>");
     $uploadOk = 0;
 }
 
 
 if ($uploadOk == 0) {
-    echo "File not uploaded.<br>";
+    echo "<p>File not uploaded.</p><br>";
 // if everything is ok, try to upload file
 } else {
 
@@ -65,15 +65,15 @@ if ($uploadOk == 0) {
             values ('$file_name', '$file_path', $unique_id)";
             //'$_COOKIE['id_number]'
             if ($conn->query($statement) === TRUE) {
-                echo "New log inserted successfully<br>";
+                echo "<p>New log inserted successfully</p><br>";
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error . "<br>";
+                echo "<p>Error: " . $sql . "<br>" . $conn->error . "</p><br>";
             }
             $conn->close();
 
             // confirmation
-            echo "The file ".$file_name. " has been uploaded to $file_dir.<br>";
-            echo "<a href='/uploadtest/files.php'>See your files</a><br>";
+            echo "<p>The file ".$file_name. " has been uploaded to $file_dir.</p><br>";
+            echo "<p><a href='/uploadtest/files.php'>See your files</a></p><br>";
             
             // moved inside database stuff so nothing has to be processed if an error exists
             // Process the file after uploading it
@@ -85,11 +85,11 @@ if ($uploadOk == 0) {
             die();
 
         } else {
-            displayError("You have already uploaded a file of the name: '$file_name'.");
+            displayError("<p>You have already uploaded a file of the name: '$file_name'.</p>");
             die();
         }
     } else {
-        displayError("There was a system error when uploading your file.");
+        displayError("<p>There was a system error when uploading your file.</p>");
         die();
     }
 
